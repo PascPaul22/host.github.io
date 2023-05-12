@@ -1,0 +1,153 @@
+<html>
+<head>
+    
+
+<title>Proiect PIUG</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+body {
+  margin: 0;
+}
+
+.header {
+  background-image: url("poze/bg1.jpg");
+  padding: 20px;
+  text-align: center;
+}
+
+
+.topnav {
+  overflow: hidden;
+  background-color: #fc0339;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #000000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+
+}
+
+
+.topnav a:hover {
+  background-color: #fffecc;
+  color:  #fc0339;
+}
+
+h1{ font-size: 50px;}
+
+
+
+</style>
+    
+
+    
+<script>
+
+    
+    // Get all the navigation links
+const navLinks = document.querySelectorAll('.topnav a');
+
+// Create an object to store the click counts for each link
+const clickCounts = {};
+
+// Add a click event listener to each navigation link
+navLinks.forEach(link => {
+  link.addEventListener('click', event => {
+    event.preventDefault();
+    
+    // Increment the click count for this link
+    clickCounts[link.innerText] = (clickCounts[link.innerText] || 0) + 1;
+    
+    // Sort the navigation links based on the click counts
+    const sortedLinks = Array.from(navLinks)
+      .sort((a, b) => clickCounts[b.innerText] - clickCounts[a.innerText]);
+    
+    // Remove the old list items from the navigation bar
+    navLinks.forEach(link => link.parentElement.remove());
+    
+    // Add the sorted list items back to the navigation bar
+    sortedLinks.forEach(link => {
+      const li = document.createElement('a');
+      li.appendChild(link);
+      document.querySelector('.topnav').appendChild(li);
+    });
+  });
+});
+
+// Sort the navigation links initially based on the click counts
+const initialSortedLinks = Array.from(navLinks)
+  .sort((a, b) => clickCounts[b.innerText] - clickCounts[a.innerText]);
+
+// Remove the old list items from the navigation bar
+navLinks.forEach(link => link.parentElement.remove());
+
+// Add the sorted list items back to the navigation bar
+initialSortedLinks.forEach(link => {
+  const li = document.createElement('li');
+  li.appendChild(link);
+  document.querySelector('.topnav').appendChild(li);
+});
+
+    
+    
+</script>    
+    
+    
+    
+</head>
+
+
+
+<body>
+
+
+<div class="header">
+  <h1><script language="JavaScript1.2">
+var message="LIBRARY"
+var neonbasecolor="#000000"
+					
+
+
+
+var n=0
+if (document.all||document.getElementById){
+document.write('<font color="'+neonbasecolor+'">')
+for (m=0;m<message.length;m++)
+document.write('<span id="neonlight'+m+'">'+message.charAt(m)+'</span>')
+document.write('</font>')
+}
+else
+document.write(message)
+
+
+</script></h1>
+</div>
+
+
+<div class="topnav">
+  <a href="acasa.html" target="zona">HOME</a>
+  <a href="contact.html" data-clicks="0" target="zona">CONTACT</a>
+  <a href="sali.html" data-clicks="0" target="zona">STUDY SPACES</a>
+  <a href="autentificare.html" data-clicks="0" target="zona">CREATE ACCOUNT</a>
+</div>
+
+
+
+
+
+<iframe src="acasa.html" name="zona" width="100%" height="100%"></iframe>
+
+</body>
+
+
+
+
+
+</html>
